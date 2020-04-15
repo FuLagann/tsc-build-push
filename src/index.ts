@@ -14,37 +14,23 @@ const useremail : string = core.getInput("user-email");
 /**The commit message that will appear when a build has completed.*/
 const message : string = core.getInput("message");
 
-/**An interface to get the important items from within a tsconfig.json.*/
-interface TsConfig {
-	/**The options for compilation.*/
-	compilerOptions : {
-		/**The output directory of where the .js files are stored.*/
-		outDir : string;
-	}
-}
-
 /**Tells the action that it has failed when an error has occured.
  * @param err {Error} - The error to log.*/
 function onError(err : Error) { core.setFailed(err.message); }
 
 /**Compiles all the typescript.*/
 async function buildTypeScript() {
-	// Variables
-	let config : TsConfig;
-	
 	if(directories) {
 		// Variables
 		let dirs = splitString(directories, ',');
 		
 		for(let i = 0; i < dirs.length; i++) {
 			console.log("Building typescript @ " + dirs[i]);
-			config = JSON.parse(fs.readFileSync(path.join(dirs[i], "tsconfig.json")).toString()) as TsConfig;
 			await exec("tsc", ["-b", dirs[i]]);
 		}
 	}
 	else {
 		console.log("Building typescript @ base directory");
-		config = JSON.parse(fs.readFileSync("./tsconfig.json").toString()) as TsConfig;
 		await exec("tsc");
 	}
 }
@@ -84,6 +70,7 @@ function splitString(str : string, delimiter : string) : string[] {
 }
 
 (async function() {
+	await exec("tsc", ["--help"]);
 	await buildTypeScript();
 	await gitPush().catch(function() {});
 })().catch(onError);
