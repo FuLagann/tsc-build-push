@@ -1,0 +1,33 @@
+{
+  "name": "tsc-build-push",
+  "version": "1.0.0",
+  "description": "Builds the typescript project(s) and pushes any new items to make sure the repo always has a built project.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuLagann/tsc-build-push.git"
+  },
+  "keywords": [
+    "tsc",
+    "build",
+    "git",
+    "push",
+    "make-sure-it-compiles"
+  ],
+  "author": "Paul Gonzalez-Becerra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FuLagann/tsc-build-push/issues"
+  },
+  "homepage": "https://github.com/FuLagann/tsc-build-push#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/exec": "^1.0.3",
+    "@types/node": "^13.11.1",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
