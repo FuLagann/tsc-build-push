@@ -40,7 +40,7 @@ async function gitPush() {
 	console.log("Pushing to git");
 	await exec("git", ["config", "--global", "user.name",  username]);
 	await exec("git", ["config", "--global", "user.email", useremail]);
-	await exec("git", ["add", "--all"]);
+	await exec("git", ["add", "."]);
 	await exec("git", ["commit", "-m", message]);
 	await exec("git", ["push"]);
 }
@@ -70,7 +70,6 @@ function splitString(str : string, delimiter : string) : string[] {
 }
 
 (async function() {
-	await exec("tsc", ["--help"]);
 	await buildTypeScript();
 	await gitPush().catch(function() {});
 })().catch(onError);
