@@ -1,7 +1,7 @@
 
-name: "Typescript Build/Push"
+name: "Typescript (tsc) Build/Push"
 author: "Paul Gonzalez-Becerra"
-description: "Builds the typescript project(s) and pushes any new items to make sure the repo always has a built project."
+description: "This action is for building typescript projects that were pushed uncompiled, compiles the TypeScript into JavaScript, and makes a second commit for the compiled JS files."
 inputs:
   user-name:
     description: "The name of a contributor of the repository, used for pushing to git."
