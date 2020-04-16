@@ -1,5 +1,5 @@
 
-# Typescript Build/Push
+# Typescript (tsc) Build/Push
 
 This action is for building typescript projects that were pushed uncompiled, compiles the TypeScript into JavaScript, and makes a second commit for the compiled JS files.
 
