@@ -13,6 +13,29 @@ This action is for building typescript projects that were pushed unbuilt and mak
 
 **`directories` as (string[]):** The list of directories to build the typescripts from, if omitted then it will use the base project directory. The list is seperated by comma that's not found within quotations (""). Example: `path/to/folder, second/path/to/folder/`
 
+## Example Workflow Yaml
+
+The following is an example of a workflow yaml that is used to have the action run on your repository:
+
+```yml
+on: [push]
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    name: Builds Typescript
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Building Typescript
+        uses: FuLagann/tsc-build-push@v1
+        with:
+          user-name: "John Doe"
+          user-email: "john.doe@example.com"
+          message: "Automatically built unbuilt typescript"
+          directories: ./, path/to/folder/
+```
+
 ## License
 
 The project is licensed under [MIT](LICENSE).
