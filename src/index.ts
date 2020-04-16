@@ -26,7 +26,7 @@ async function buildTypeScript() {
 		
 		for(let i = 0; i < dirs.length; i++) {
 			console.log("Building typescript @ " + dirs[i]);
-			await exec("tsc", ["-b", dirs[i]]);
+			await exec("tsc", ["-p", dirs[i]]);
 		}
 	}
 	else {
