@@ -3,9 +3,6 @@ name: "Typescript Build/Push"
 author: "Paul Gonzalez-Becerra"
 description: "Builds the typescript project(s) and pushes any new items to make sure the repo always has a built project."
 inputs:
-  directories:
-    description: "The list of directories to build the typescripts from, if omitted then it will use the base project directory."
-    required: false
   user-name:
     description: "The name of a contributor of the repository, used for pushing to git."
     required: true
@@ -16,6 +13,9 @@ inputs:
     description: "The commit message that will appear when a build has completed."
     required: true
     default: "Automatically built unbuilt typescript"
+  directories:
+    description: "The list of directories to build the typescripts from, if omitted then it will use the base project directory. The list is seperated by comma that's not found within quotations."
+    required: false
 runs:
   using: "node12"
   main: "lib/index.js"
