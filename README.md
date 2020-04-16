@@ -1,7 +1,7 @@
 
 # Typescript Build/Push
 
-This action is for building typescript projects that were pushed unbuilt and makes a commit for the built JS files.
+This action is for building typescript projects that were pushed uncompiled, compiles the TypeScript into JavaScript, and makes a second commit for the compiled JS files.
 
 ## Usage
 
@@ -39,3 +39,7 @@ jobs:
 ## License
 
 The project is licensed under [MIT](LICENSE).
+
+## Contribution
+
+Any issues, please make a [new issue on the project's repository.](https://github.com/FuLagann/tsc-build-push/issues)
