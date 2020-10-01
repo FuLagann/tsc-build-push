@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/FuLagann/tsc-build-push#readme",
   "dependencies": {
-    "@actions/core": "^1.2.3",
+    "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.3",
     "@types/node": "^13.11.1",
     "fs": "0.0.1-security",
