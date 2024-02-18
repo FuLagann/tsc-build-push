@@ -18,6 +18,11 @@ const message : string = core.getInput("message");
  * @param err {Error} - The error to log.*/
 function onError(err : Error) { core.setFailed(err.message); }
 
+async function updateNPMPackages() {
+	console.log("Updating NPM Packages");
+	await exec("npm i");
+}
+
 /**Compiles all the typescript.*/
 async function buildTypeScript() {
 	if(directories) {
@@ -70,6 +75,7 @@ function splitString(str : string, delimiter : string) : string[] {
 }
 
 (async function() {
+	await updateNPMPackages();
 	await buildTypeScript();
 	await gitPush().catch(function() {});
 })().catch(onError);
